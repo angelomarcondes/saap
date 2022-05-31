@@ -18,15 +18,15 @@ services:
     networks:
       - saap-net
   saap:
-   image: interlegis/saap:latest
+   image: ojonathacardoso/saap:latest
 #    build:
 #       context: .
 #       dockerfile: Dockerfile
-    container_name: saap
-    labels:
+   container_name: saap
+   labels:
        NAME: "saap"
-    restart: always
-    environment:
+   restart: always
+   environment:
        SITE_NAME: 'Sistema de Apoio à Atividade Parlamentar'
        SITE_DOMAIN: 'saap-demo.camaranh.rs.gov.br'
        DEBUG: 'False'
@@ -48,14 +48,14 @@ services:
        BRASAO_PROPRIO: 'True'
        ADMIN_PASSWORD: saap_interlegis
        ADMIN_EMAIL: admin@interlegis.leg.br
-    volumes:
+   volumes:
       - saap_data:/var/interlegis/saap/data
       - saap_media:/var/interlegis/saap/media
-    depends_on:
+   depends_on:
       - saapdb
-    ports:
+   ports:
       - "80:80"
-    networks:
+   networks:
       - saap-net
 networks:
   saap-net:
